@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/4b561163af.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <style>
+    .container {
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+    }
+
+    .d-grid {
+      margin-top: 15px;
+      width: 30%;
+      /* margin-right: 50px; */
+      display: block;
+      right: 20px;
+    }
+
+    .list-group {
+      margin-top: 20px;
+    }
+
+    #btn2 {
+      position: absolute;
+      right: 0px;
+      bottom: 0%;
+      /* width: 10%; */
+      top: 0px;
+      margin: 4px 1px;
+    }
+
+    #btn1 {
+      position: absolute;
+      right: 50px;
+      top: 0%;
+      margin: 4px 1px;
+    }
+
+    #btns {
+      display: block;
+      margin-left: auto;
+      margin-right: 0;
+      width: 4%;
+      height: 1%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    .fa {
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body id="body">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="searchinput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="searchbtn" class="btn btn-outline-success" type="button">Search</button>
+        </form>
+        <button id="btns"><i id="sn" class="fa-solid fa-moon" style="text-align: right ;"></i></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="input-group">
+      <span class="input-group-text">name and number</span>
+      <input type="search" aria-label="Name" class="form-control" id="box1">
+      <input type="search" aria-label="number" class="form-control" id="box2">
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button id="btn" class="btn btn-primary" type="button">ADD</button>
+      <!-- <button class="btn btn-primary" type="button">Button</button> -->
+      </div>
+    <ul id="list" class="list-group">
+      <li class="list-group-item">
+        <h3>Contacts</h3>
+      </li>
+
+    </ul>
+  </div>
+      <!-- <button id="btns"><i id="sn" class="fa-solid fa-moon" style="text-align: right ;"></i></button> -->
+      <script>
+        let select = document.getElementById("btns");
+        let fontt = document.getElementById("sn")
+        //let bod=document.getElementById("body")
+        //fontt.className="p"
+        //console.log(body.)
+        select.addEventListener('click', dark)
+        function dark(e) {
+          if (fontt.className.includes("moon")) {
+            body.style = "background-color:black;color:white"
+            fontt.className = "fa-solid fa-sun"
+          }
+          else {
+            body.style = "background-color:white;color:black"
+            fontt.className = "fa-solid fa-moon"
+          }
+        }
+        let bx1 = document.getElementById("box1")
+        let bx2 = document.getElementById("box2")
+        let bton = document.getElementById("btn")
+        let lst = document.getElementById("list")
+        let srch = document.getElementById("searchbtn")
+        let srchinput = document.getElementById("searchinput")
+        srch.addEventListener('click', search)
+
+        let j = 1;
+        function search(event) {
+          //console.log(srchinput.value)
+          for (let i = 1; i <= lst.children.length; i++) {
+            if (lst.children[i].textContent.includes(srchinput.value)) {
+              console.log(lst.children[i].textContent)
+              let result = document.createElement("li")
+              // result.textContent=lst.children[i].textContent
+              let temp = srchinput.value
+              para.classList = "list-group-item"
+              result.innerHTML = `<h5>${temp}</h5><button type="button" class="btn btn-light" id="btn1" onClick="edit(this)">Edit</button><button id ="btn2" class="btn btn-danger" type="button" onClick="deletee(this)"><i class="fa-solid fa-trash"></i>
+                </button>`
+              // lst.appendChild(result)
+              event.parentElement.replaceChild(result, lst)
+              // lst.children[j].textContent=lst.children
+              //  j++;
+
+
+
+              //break;
+
+            }
+          }
+
+        }
+
+        bton.addEventListener('click', addd)
+        function addd(e) {
+
+     console.log("hello")
+
+          let para = document.createElement("li");
+          para.classList = "list-group-item"
+          let temp = bx1.value + "   " + bx2.value;
+          para.innerHTML = `<h5>${temp}</h5><button type="button" class="btn btn-light" id="btn1" onClick="edit(this)">Edit</button><button id ="btn2" class="btn btn-danger" type="button" onClick="deletee(this)"><i class="fa-solid fa-trash"></i>
+                </button>`
+
+          lst.appendChild(para);
+          if (lst.children[1].textContent == "Empty list") {
+            lst.children[1].remove()
+          }
+        }
+        //let del=document.querySelectorAll("#btn2")[1]
+        // console.log(del)
+        // del.addEventListener('click',delete)
+        function deletee(curr) {
+          let x = curr.parentElement;
+          x.remove();
+          if (lst.children.length <= 1) {
+            let msg = document.createElement("h3")
+            //msg.classList.add("emptyMsg")
+            msg.className = "emptyMsg"
+            msg.textContent = "Empty list"
+
+            lst.appendChild(msg)
+          }
+          //console.log(curr)
+        }
+        //let edit=document.getElementById("btn1")
+        //console.log(edit)
+        function edit(curr) {
+          let y = curr.previousElementSibling.textContent
+          if (curr.textContent == "Edit") {
+            curr.textContent = "Done"
+            let editInput = document.createElement("input")
+            editInput.type = "text"
+            //editInput.aria-label="Name" 
+            editInput.className = "form-control"
+            editInput.value = y
+            curr.parentElement.replaceChild(editInput, curr.previousElementSibling)
+
+          }
+          else {
+            curr.textContent = "Edit"
+            //console.log(curr.previousElementSibling.value)
+            let editedVal = document.createElement("h5")
+            editedVal.textContent = curr.previousElementSibling.value
+            curr.parentElement.replaceChild(editedVal, curr.previousElementSibling)
+
+
+          }
+          //console.log(curr.textContent)
+        }
+
+
+      </script>
+</body>
+
+</html>
